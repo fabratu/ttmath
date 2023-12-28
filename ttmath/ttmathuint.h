@@ -1327,6 +1327,11 @@ private:
 #pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #endif
 
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-but-set-variable"
+#endif
+
 
 	/*!
 		an auxiliary method for calculating the Karatsuba multiplication
@@ -1463,6 +1468,10 @@ private:
 
 #if defined(__GNUC__) && !defined(__clang__)
 #pragma GCC diagnostic pop
+#endif
+
+#ifdef __clang__
+#pragma clang diagnostic pop
 #endif
 
 #ifdef _MSC_VER
